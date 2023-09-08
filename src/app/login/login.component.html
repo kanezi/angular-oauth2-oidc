@@ -1,0 +1,11 @@
+<div nz-row [nzGutter]="8" nzAlign="middle" id="login">
+    <div nz-col [nzSpan]="8" nzOffset="8">
+        <nz-card nzTitle="Please log in via">
+            <button nz-button nzType="default" nzSize="large" nzBlock (click)="loginWithGoogle()">
+                <i nz-icon nzType="google" nzTheme="outline"></i>Google</button>
+            <nz-divider nzText="OR"></nz-divider>
+            <button nz-button nzType="default" nzSize="large" nzBlock (click)="loginWithGitlab()">
+                <i nz-icon nzType="gitlab" nzTheme="outline"></i>Gitlab</button>
+        </nz-card>
+    </div>
+</div>

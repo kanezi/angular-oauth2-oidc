@@ -1,0 +1,40 @@
+<nz-header class="header">
+    <nz-row>
+        <nz-col nzSpan="12">
+            <h2 routerLink="/">
+                Angular - SPA Oauth2 / Oidc Showcase
+            </h2>
+        </nz-col>
+
+ 
+        <nz-col nzSpan="12" class="login_info" *ngIf="isAuthenticated$ | async; let auth">
+
+
+            <ng-container *ngIf="isUserAuthenticated() | async">
+                <span>
+                    <nz-tag *ngFor="let config of auth.allConfigsAuthenticated"
+                        nzColor="{{config.isAuthenticated ? '#55acee' : 'default'}}">
+                        <span nz-icon nzType="{{config.configId}}"></span>
+                        <span>{{config.configId}}</span>
+                    </nz-tag>
+                </span>
+
+
+                <button nz-button nzType="primary" (click)="logout()" nzShape="round">
+                    Logout &nbsp; <b>{{(user() | async)?.name}}</b>
+                </button>
+                <nz-divider nzType="vertical"></nz-divider>
+                <nz-avatar nzIcon="user" nzSrc="{{(user() | async)?.picture}}"></nz-avatar>
+
+            </ng-container>
+
+
+            <ng-container *ngIf="!(isUserAuthenticated() | async)">
+                <span>Not Logged In</span>
+                <nz-divider nzType="vertical"></nz-divider>
+                <nz-avatar nzIcon="user" [ngStyle]="{ 'background-color': '#00a2ae' }"></nz-avatar>
+            </ng-container>
+
+        </nz-col>
+    </nz-row>
+</nz-header>

@@ -1,5 +1,65 @@
 # AngularOauth2Oidc
 
+## LINKS
+
+[Google developer console](https://console.cloud.google.com/apis/dashboard)
+
+[Google openid config](https://accounts.google.com/.well-known/openid-configuration)
+
+[Gitlab openid config](https://gitlab.com/.well-known/openid-configuration)
+
+
+[Google Gmail - manage labels](https://developers.google.com/gmail/api/guides/labels)
+
+[Google Gmail - manage labels - REST reference](https://developers.google.com/gmail/api/reference/rest/v1/users.labels)
+
+
+[Gitlab list current user API](https://docs.gitlab.com/ee/api/users.html#for-non-administrator-users-1)
+
+[Online PKCE Generator Tool](https://tonyxu-io.github.io/pkce-generator/)
+
+---
+
+## STEPS
+
+* create new angular app
+  ```
+  ng new angular-oauth2-oidc
+  cd angular-oauth2-oidc
+  ```
+
+* add ng-zorro ui library
+  ```
+  ng add ng-zorro-antd
+  ```
+
+* configure test skiping and optionally inline styling
+  ```
+    "schematics": {
+        "@schematics/angular:component": {
+        "style": "less",
+        "inlineStyle": true,
+        "skipTests": true
+        }
+  ```   
+
+* remove typescript strict property initialization in *tsconfig.json*
+  ```
+  "strictPropertyInitialization": false
+  ```
+
+* push project to github and create workflow to publish to github pages
+  (check that you have valid app and github pages url which we'll use with google and github client registration)
+
+* add [angular-auth-oidc-client](https://github.com/damienbod/angular-auth-oidc-client) library
+  ```
+  ng add angular-auth-oidc-client
+  ```
+  authority url for google: *https://accounts.google.com*
+
+  authority url for gitlab: *https://gitlab.com*
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
 
 ## Development server

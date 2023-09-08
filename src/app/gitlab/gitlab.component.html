@@ -1,0 +1,24 @@
+<div [ngStyle]="{'padding': '2em', 'background-color': 'white'}">
+    <nz-page-header [nzGhost]="false">
+        <nz-page-header-title>Gitlab</nz-page-header-title>
+        <nz-page-header-extra>
+           <!-- <button nz-button nzType="primary" (click)="forceRefresh()" nzSize="large"><span nz-icon nzType="reload" nzTheme="outline"></span> Force refresh</button> -->
+        </nz-page-header-extra>
+        <nz-page-header-content>
+        </nz-page-header-content>
+    </nz-page-header>
+
+
+    <nz-row nzGutter="40">
+        <nz-col nzSpan="12" style="text-align: left">
+            <div style="background: #ECECEC;padding:30px;">
+                <app-user configId="gitlab"></app-user>
+            </div>
+        </nz-col>
+        <nz-col nzSpan="12">
+            <div style="background: #ECECEC;padding:30px;">
+                <p>Gitlab read user API</p>
+            </div>
+        </nz-col>
+    </nz-row>
+</div>

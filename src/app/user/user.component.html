@@ -1,0 +1,36 @@
+<nz-card [nzBordered]="false" nzTitle="User data">
+
+    <nz-space>
+      <nz-avatar *nzSpaceItem nzIcon="user" nzSrc="{{(authenticatedUserData$ | async)?.picture}}"></nz-avatar>
+      <span *nzSpaceItem>{{(authenticatedUserData$ | async)?.name}}</span>
+    </nz-space>
+  
+    <nz-divider></nz-divider>
+  
+    <nz-card nzTitle="Authenticated user data">
+      <pre>{{authenticatedUserData$ | async | json}}</pre>
+    </nz-card>
+  
+  
+    <nz-divider></nz-divider>
+  
+    <nz-alert nzType="info" nzMessage="Authentication Result" [nzDescription]="authResult"></nz-alert>
+    <ng-template #authResult>
+      <pre>{{authenticationResult$ | async | json}}</pre>
+    </ng-template>
+  
+    <nz-divider></nz-divider>
+  
+    <nz-alert nzType="success" nzMessage="access token" nzDescription="{{accessToken$ | async | json}}"></nz-alert>
+  
+    <nz-divider></nz-divider>
+    <nz-alert nzType="success" nzMessage="id token" nzDescription="{{idToken$ | async | json}}"></nz-alert>
+  
+    <nz-divider></nz-divider>
+    <nz-alert nzType="success" nzMessage="refresh token" nzDescription="{{refreshToken$ | async | json}}"></nz-alert>
+  
+  
+  
+  
+  
+  </nz-card>
