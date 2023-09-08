@@ -46,4 +46,8 @@ export class AuthService {
     );
   }
 
+  forceRefreshSession(configId: string) {
+    return this.oidcSecurityService.forceRefreshSession(undefined, configId);
+  }
+
 }
