@@ -16,6 +16,7 @@ import { AuthModule } from 'angular-auth-oidc-client';
                 silentRenew: true,
                 useRefreshToken: true,
                 renewTimeBeforeTokenExpiresInSeconds: 30,
+                secureRoutes: ['https://gmail.googleapis.com/gmail/v1']
             },
             {
                 configId: 'gitlab',
@@ -28,6 +29,7 @@ import { AuthModule } from 'angular-auth-oidc-client';
                 silentRenew: true,
                 useRefreshToken: true,
                 renewTimeBeforeTokenExpiresInSeconds: 30,
+                secureRoutes: ['https://gitlab.com/api']
             }
         ]
       })],

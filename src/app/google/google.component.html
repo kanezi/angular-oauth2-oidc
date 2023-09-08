@@ -14,7 +14,46 @@
         </nz-col>
         <nz-col nzSpan="12">
             <div style="background: #ECECEC;padding:30px;">
-              <p>Gmail labels crud</p>
+
+
+                <nz-card style="text-align: left;" nzTitle="Gmail labels" [nzExtra]="extraTemplate">
+
+
+
+                    <nz-table #basicTable [nzData]="gmailUserLabels" nzSize="small">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th nzAlign="center">Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let data of basicTable.data">
+                                <td>{{data.id}}</td>
+                                <td>{{data.name}}</td>
+                                <td nzAlign="center">
+                                    <button nz-popconfirm nzPopconfirmTitle='Delete label {{data.name}}?'
+                                        (nzOnConfirm)="deleteGmailLabel(data)" nz-button nzType="default" nzSize="small"
+                                        nzShape="circle"><i nz-icon nzType="delete"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </nz-table>
+
+                </nz-card>
+                <ng-template #extraTemplate>
+                    <nz-button-group>
+                        <input nz-input placeholder="Basic usage" [(ngModel)]="label" />
+                        <button nz-popconfirm nzPopconfirmTitle='Create label "{{label}}"?'
+                            (nzOnConfirm)="createGmailLabel(label)" [disabled]="!label" nz-button nzType="default">New
+                            Label</button>
+                        <nz-divider nzType="vertical"></nz-divider>
+                        <button nz-button nzType="primary" (click)="fetchGmailLabels()">Fetch Gmail Labels</button>
+                    </nz-button-group>
+                </ng-template>
+
+
             </div>
         </nz-col>
     </nz-row>

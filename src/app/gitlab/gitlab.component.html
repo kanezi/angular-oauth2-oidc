@@ -17,7 +17,16 @@
         </nz-col>
         <nz-col nzSpan="12">
             <div style="background: #ECECEC;padding:30px;">
-                <p>Gitlab read user API</p>
+
+                <nz-card style="text-align: left;" nzTitle="Gitlab User API" [nzExtra]="extraTemplate">
+                    <pre *ngIf="gitlabUserData != ''">{{gitlabUserData | json}}</pre>
+                </nz-card>
+                <ng-template #extraTemplate>
+                    <nz-button-group>
+                        <button nz-button nzType="primary" (click)="getUserData()">Get user API data</button>
+                    </nz-button-group>
+                </ng-template>
+                
             </div>
         </nz-col>
     </nz-row>
